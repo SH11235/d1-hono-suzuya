@@ -39,10 +39,8 @@ export const item = sqliteTable("item", {
     name: text("name").notNull(),
     product_code: text("product_code"),
     sku: integer("sku"),
-    illust_status: text("illust_status").notNull(),
-    pic_illust_id: text("pic_illust_id").references(() => worker.id),
-    design_status: text("design_status").notNull(),
-    pic_design_id: text("pic_design_id").references(() => worker.id),
+    item_status: text("item_status").notNull(),
+    pic_item_id: text("pic_item_id").references(() => worker.id),
     maker_id: text("maker_id").references(() => maker.id),
     retail_price: integer("retail_price"),
     deleted: integer("deleted").notNull(),
@@ -85,12 +83,8 @@ export const item_relations = relations(item, ({ one }) => ({
         fields: [item.title_id],
         references: [title.id],
     }),
-    pic_illust: one(worker, {
-        fields: [item.pic_illust_id],
-        references: [worker.id],
-    }),
-    pic_design: one(worker, {
-        fields: [item.pic_design_id],
+    pic_item: one(worker, {
+        fields: [item.pic_item_id],
         references: [worker.id],
     }),
     rough_coordinator: one(worker, {
