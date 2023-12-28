@@ -4,6 +4,13 @@
 import { relations } from 'drizzle-orm';
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 
+export const user = sqliteTable("user", {
+    id: text("id").primaryKey().notNull(),
+    email: text("email").notNull(),
+    password: text("password").notNull(),
+    role: text("role").notNull(),
+});
+
 export const maker = sqliteTable("maker", {
     id: text("id").primaryKey().notNull(),
     code_name: text("code_name").notNull().unique(),

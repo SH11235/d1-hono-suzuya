@@ -1,0 +1,640 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "id": "d0bccc64-005b-40c5-8715-1b3567e43ea0",
+  "prevId": "a824fcbb-a5c5-49b2-91a1-93730d4163ae",
+  "tables": {
+    "item": {
+      "name": "item",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "title_id": {
+          "name": "title_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "product_code": {
+          "name": "product_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sku": {
+          "name": "sku",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "item_status": {
+          "name": "item_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "pic_item_id": {
+          "name": "pic_item_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "maker_id": {
+          "name": "maker_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "retail_price": {
+          "name": "retail_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "deleted": {
+          "name": "deleted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "resubmission": {
+          "name": "resubmission",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "line": {
+          "name": "line",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "rough_coordinator_id": {
+          "name": "rough_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "rough_check_person_id": {
+          "name": "rough_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "line_art_coordinator_id": {
+          "name": "line_art_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "line_art_check_person_id": {
+          "name": "line_art_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "coloring_coordinator_id": {
+          "name": "coloring_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "coloring_check_person_id": {
+          "name": "coloring_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "design_coordinator_id": {
+          "name": "design_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "design_check_person_id": {
+          "name": "design_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "submission_data_coordinator_id": {
+          "name": "submission_data_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "submission_data_check_person_id": {
+          "name": "submission_data_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "announcement_materials_coordinator_id": {
+          "name": "announcement_materials_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "announcement_materials_check_person_id": {
+          "name": "announcement_materials_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "jan_coordinator_id": {
+          "name": "jan_coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "jan_check_person_id": {
+          "name": "jan_check_person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_title_id_title_id_fk": {
+          "name": "item_title_id_title_id_fk",
+          "tableFrom": "item",
+          "tableTo": "title",
+          "columnsFrom": [
+            "title_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_pic_item_id_worker_id_fk": {
+          "name": "item_pic_item_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "pic_item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_maker_id_maker_id_fk": {
+          "name": "item_maker_id_maker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "maker",
+          "columnsFrom": [
+            "maker_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_rough_coordinator_id_worker_id_fk": {
+          "name": "item_rough_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "rough_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_rough_check_person_id_worker_id_fk": {
+          "name": "item_rough_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "rough_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_line_art_coordinator_id_worker_id_fk": {
+          "name": "item_line_art_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "line_art_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_line_art_check_person_id_worker_id_fk": {
+          "name": "item_line_art_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "line_art_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_coloring_coordinator_id_worker_id_fk": {
+          "name": "item_coloring_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "coloring_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_coloring_check_person_id_worker_id_fk": {
+          "name": "item_coloring_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "coloring_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_design_coordinator_id_worker_id_fk": {
+          "name": "item_design_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "design_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_design_check_person_id_worker_id_fk": {
+          "name": "item_design_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "design_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_submission_data_coordinator_id_worker_id_fk": {
+          "name": "item_submission_data_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "submission_data_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_submission_data_check_person_id_worker_id_fk": {
+          "name": "item_submission_data_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "submission_data_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_announcement_materials_coordinator_id_worker_id_fk": {
+          "name": "item_announcement_materials_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "announcement_materials_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_announcement_materials_check_person_id_worker_id_fk": {
+          "name": "item_announcement_materials_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "announcement_materials_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_jan_coordinator_id_worker_id_fk": {
+          "name": "item_jan_coordinator_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "jan_coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "item_jan_check_person_id_worker_id_fk": {
+          "name": "item_jan_check_person_id_worker_id_fk",
+          "tableFrom": "item",
+          "tableTo": "worker",
+          "columnsFrom": [
+            "jan_check_person_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "maker": {
+      "name": "maker",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "code_name": {
+          "name": "code_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "deleted": {
+          "name": "deleted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "maker_code_name_unique": {
+          "name": "maker_code_name_unique",
+          "columns": [
+            "code_name"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "title": {
+      "name": "title",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "release_date": {
+          "name": "release_date",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "reservation_start_date": {
+          "name": "reservation_start_date",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "reservation_deadline": {
+          "name": "reservation_deadline",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "order_date_to_maker": {
+          "name": "order_date_to_maker",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "project_type": {
+          "name": "project_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "catalog_status": {
+          "name": "catalog_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "announcement_status": {
+          "name": "announcement_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "remarks": {
+          "name": "remarks",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "deleted": {
+          "name": "deleted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "'CURRENT_TIMESTAMP'"
+        },
+        "delivery_date": {
+          "name": "delivery_date",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "list_submission_date": {
+          "name": "list_submission_date",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "worker": {
+      "name": "worker",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "deleted": {
+          "name": "deleted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
