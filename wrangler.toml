@@ -6,3 +6,6 @@ compatibility_date = "2023-12-21"
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "suzuyatest"
 database_id = "603d21f2-38da-4529-ab7e-20fb7d3ec22c"
+
+[dev]
+port = 8787

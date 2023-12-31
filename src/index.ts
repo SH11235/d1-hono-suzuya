@@ -4,6 +4,7 @@ import { Bindings } from "./types";
 import { corsMiddleware } from "./middlewares/cors";
 import { adminRoutes } from "./routes/admin";
 import { authMiddleware } from "./middlewares/auth";
+import { workerRoutes } from "./routes/worker";
 
 const app = new Hono<{ Bindings: Bindings }>();
 
@@ -13,5 +14,6 @@ app.use("*", corsMiddleware);
 app.use("*", authMiddleware);
 
 adminRoutes(app);
+workerRoutes(app);
 
 export default app;
