@@ -10,8 +10,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "wrangler dev --local",
-    "start:prod": "wrangler dev",
+    "start": "wrangler dev",
+    "start:prod": "wrangler dev --remote",
     "deploy": "wrangler deploy",
     "migration:generate": "drizzle-kit generate:sqlite --out migrations --schema src/schema.ts",
     "migration:apply": "wrangler d1 migrations apply suzuyatest --local",
