@@ -3,6 +3,7 @@ export type Bindings = {
     KV: KVNamespace;
     RESEND_API_KEY: string;
     JWT_SECRET_KEY: string;
+    CORS_ORIGIN: string;
 };
 
 export type JWTPayload = {

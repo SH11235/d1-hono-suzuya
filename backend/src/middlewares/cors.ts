@@ -1,9 +1,24 @@
+import { Context } from "hono";
 import { cors } from "hono/cors";
 
-export const corsMiddleware = cors({
-    origin: ["http://localhost:1235"],
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowHeaders: ["Authorization", "Content-Type"],
-    exposeHeaders: ["Authorization"],
-    maxAge: 86400,
-});
+import { Bindings } from "../types";
+
+
+export const corsMiddleware = async (
+    context: Context<
+        { Bindings: Bindings; },
+        "*",
+        {}
+    >,
+    next: () => Promise<void>
+) => {
+    console.log("corsMiddleware");
+    console.log(context.env.CORS_ORIGIN);
+    const corsMiddleware = cors({
+        origin: [context.env.CORS_ORIGIN],
+        allowHeaders: ['Origin', 'Content-Type', 'Authorization'],
+        allowMethods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
+        credentials: true,
+    });
+    return await corsMiddleware(context, next);
+}

@@ -60,7 +60,9 @@ export const adminRoutes = (app: Hono<{ Bindings: Bindings }>) => {
             c.env.JWT_SECRET_KEY,
             "HS256"
         );
-        c.header("Authorization", `Bearer ${token}`);
+
+        // 604800 = 1 week
+        c.header("Set-Cookie", `token=${token}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=604800;`);
 
         return c.json(
             {
