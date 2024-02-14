@@ -15,7 +15,12 @@ export const authMiddleware = async (
     next: () => Promise<void>
 ) => {
     // 認証のスキップ
-    if (authSkipEndpoints.some((endpoint) => context.req.path === endpoint.path && context.req.method === endpoint.method)) {
+    if (
+        authSkipEndpoints.some(
+            (endpoint) => context.req.path === endpoint.path && context.req.method === endpoint.method
+        ) ||
+        context.env.ENV === "dev"
+    ) {
         await next();
         return;
     }

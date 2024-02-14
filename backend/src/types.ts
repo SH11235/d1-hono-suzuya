@@ -2,8 +2,10 @@ export type Bindings = {
     DB: D1Database;
     KV: KVNamespace;
     RESEND_API_KEY: string;
+    ENV: "dev" | "prod";
     JWT_SECRET_KEY: string;
     CORS_ORIGIN: string;
+    DOMAIN: string;
 };
 
 export type JWTPayload = {

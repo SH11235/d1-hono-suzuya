@@ -62,7 +62,7 @@ export const adminRoutes = (app: Hono<{ Bindings: Bindings }>) => {
         );
 
         // 604800 = 1 week
-        c.header("Set-Cookie", `token=${token}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=604800;`);
+        c.header("Set-Cookie", `token=${token}; HttpOnly; Secure; SameSite=None; Domain=${c.env.DOMAIN}; Path=/; Max-Age=604800;`);
 
         return c.json(
             {

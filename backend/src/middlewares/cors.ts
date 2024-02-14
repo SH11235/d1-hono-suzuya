@@ -12,8 +12,6 @@ export const corsMiddleware = async (
     >,
     next: () => Promise<void>
 ) => {
-    console.log("corsMiddleware");
-    console.log(context.env.CORS_ORIGIN);
     const corsMiddleware = cors({
         origin: [context.env.CORS_ORIGIN],
         allowHeaders: ['Origin', 'Content-Type', 'Authorization'],
