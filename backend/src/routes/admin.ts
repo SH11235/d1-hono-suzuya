@@ -61,12 +61,10 @@ export const adminRoutes = (app: Hono<{ Bindings: Bindings }>) => {
             "HS256"
         );
 
-        // 604800 = 1 week
-        c.header("Set-Cookie", `token=${token}; HttpOnly; Secure; SameSite=None; Domain=${c.env.DOMAIN}; Path=/; Max-Age=604800;`);
-
         return c.json(
             {
                 message: "認証OK",
+                token: token,
             },
             200
         );

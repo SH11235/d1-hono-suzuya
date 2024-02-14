@@ -17,9 +17,7 @@ export const LoginForm = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Success:", data);
-                // localStorage.setItem("token", data.token);
-                // window.location.href = "/admin";
+                localStorage.setItem("token", data.token);
             })
             .catch((error) => {
                 console.error("Error:", error);
