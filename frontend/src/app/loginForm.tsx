@@ -1,27 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import { useJwtToken } from "@/context/useJWTToken";
+import { useAdminLoginFetch } from "@/hooks/useAdminLoginFetch";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        const url = process.env.NEXT_PUBLIC_API_URL + "/admin-login";
-        console.log(url);
-        const data = { email, password };
-        fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                localStorage.setItem("token", data.token);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+
+    const { adminLoginFetch } = useAdminLoginFetch();
+    const { jwtToken } = useJwtToken();
+
+    // すでにログイン状態であった場合はリダイレクト
+    useEffect(() => {
+        if (jwtToken) {
+            // TODO: ログイン後のリダイレクト先を指定
+        }
+    }, [jwtToken]);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const payload = await adminLoginFetch(email, password);
+
+        if (!payload) {
+            toast.error(
+                "ログインに失敗しました。メールアドレスとパスワードを確認してください。",
+                {
+                    icon: "❌",
+                }
+            );
+            console.error("ログインに失敗しました");
+            return;
+        }
+
+        toast.success("ログインに成功しました", {
+            icon: "✅",
+        });
+
+        // TODO: ログイン後のリダイレクト先を指定
     };
 
     return (
