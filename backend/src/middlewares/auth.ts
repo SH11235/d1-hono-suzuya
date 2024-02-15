@@ -30,9 +30,7 @@ export const authMiddleware = async (
         secret: context.env.JWT_SECRET_KEY,
         alg: "HS256",
     })(context, async () => { });
-    await next();
     const payload = context.get('jwtPayload') as JWTPayload;
-
     const role = payload.role;
     if (role !== "admin") {
         // TODO role: "user" の場合の制限について検討する
