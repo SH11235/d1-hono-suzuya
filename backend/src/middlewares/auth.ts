@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { Bindings } from "../types";
+import { Bindings, JWTPayload } from "../types";
 import { jwt } from "hono/jwt";
 
 const authSkipEndpoints = [
@@ -31,4 +31,18 @@ export const authMiddleware = async (
         alg: "HS256",
     })(context, async () => { });
     await next();
+    const payload = context.get('jwtPayload') as JWTPayload;
+
+    const role = payload.role;
+    if (role !== "admin") {
+        // TODO role: "user" の場合の制限について検討する
+        return context.json(
+            {
+                error: "権限がありません",
+            },
+            403
+        );
+    } else {
+        await next();
+    }
 };
