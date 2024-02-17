@@ -1,5 +1,5 @@
 import { useJwtToken } from "../context/useJWTToken";
-import { decodePayload } from "../utils/decodePayload";
+import { decodeJWTPayload } from "../utils/decodePayload";
 
 export const useAdminLoginFetch = () => {
     const { setJwtToken } = useJwtToken();
@@ -23,7 +23,7 @@ export const useAdminLoginFetch = () => {
         }
         const jwtToken = authHeader.replace("Bearer ", "");
         setJwtToken(jwtToken);
-        const payload = decodePayload(jwtToken);
+        const payload = decodeJWTPayload(jwtToken);
         if (!payload) {
             console.error("ログインに失敗しました");
             return undefined;

@@ -1,7 +1,7 @@
 import { JwtAdminPayloadType } from "../types/jwtType";
 import { decode } from "js-base64";
 
-export const decodePayload = (token: string): JwtAdminPayloadType => {
+export const decodeJWTPayload = (token: string): JwtAdminPayloadType => {
     // JWTは、`.`で区切られた3つの部分から成り立っている
     // ヘッダー（Header）: トークンのタイプと、使用されているハッシュアルゴリズムを含む
     // ペイロード（Payload）: トークンに含まれるクレーム（情報）を含む
