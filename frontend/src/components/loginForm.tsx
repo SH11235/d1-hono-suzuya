@@ -2,22 +2,25 @@
 
 import { useJwtToken } from "@/context/useJWTToken";
 import { useAdminLoginFetch } from "@/hooks/useAdminLoginFetch";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const router = useRouter();
     const { adminLoginFetch } = useAdminLoginFetch();
     const { jwtToken } = useJwtToken();
 
     // すでにログイン状態であった場合はリダイレクト
     useEffect(() => {
         if (jwtToken) {
-            // TODO: ログイン後のリダイレクト先を指定
+            console.log("ログイン済みです");
+            // TODO: ログイン後のリダイレクト先を変更する
+            router.push("/worker");
         }
-    }, [jwtToken]);
+    }, [jwtToken, router]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -38,7 +41,8 @@ export const LoginForm = () => {
             icon: "✅",
         });
 
-        // TODO: ログイン後のリダイレクト先を指定
+        // TODO: ログイン後のリダイレクト先を変更する
+        router.push("/worker");
     };
 
     return (
