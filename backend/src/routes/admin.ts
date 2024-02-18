@@ -61,10 +61,13 @@ export const adminRoutes = (app: Hono<{ Bindings: Bindings }>) => {
             "HS256"
         );
 
+        // フロントエンドにAuthorizationヘッダーを公開する
+        c.header("Access-Control-Expose-Headers", "Authorization");
+        c.header("Authorization", `Bearer ${token}`);
+
         return c.json(
             {
                 message: "認証OK",
-                token: token,
             },
             200
         );
