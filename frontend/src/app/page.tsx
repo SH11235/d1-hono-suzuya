@@ -1,7 +1,7 @@
 "use client";
 
 import { Toaster } from "react-hot-toast";
-import { LoginForm } from "./loginForm";
+import { LoginForm } from "../components/loginForm";
 import { JwtProvider } from "@/context/CredentialProvider";
 
 const LoginPage = () => {
