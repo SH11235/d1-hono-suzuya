@@ -20,7 +20,6 @@ export const workerRoutes = (app: Hono<{ Bindings: Bindings }>) => {
                 columns: {
                     id: true,
                     name: true,
-                    deleted: true,
                 },
                 where: eq(worker.deleted, 0),
             });
