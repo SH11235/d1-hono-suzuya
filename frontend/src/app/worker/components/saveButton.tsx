@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useWorkerFetch } from "../hooks/useWorkerFetch";
 import { SuzuyaWorker } from "@/types/worker";
 

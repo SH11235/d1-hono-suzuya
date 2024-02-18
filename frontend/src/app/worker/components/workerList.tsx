@@ -26,7 +26,7 @@ export const WorkerList = () => {
                                     onChange={
                                         (e) => {
                                             workersManager.setWorkers(
-                                                workersManager.workers.map((w) => {
+                                                (prev) => prev.map((w) => {
                                                     if (w.id === worker.id) {
                                                         return { ...w, name: e.target.value, changed: true };
                                                     }
