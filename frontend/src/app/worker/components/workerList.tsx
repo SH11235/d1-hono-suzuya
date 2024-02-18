@@ -2,7 +2,6 @@
 
 import { useWorkerFetch } from "@/app/worker/hooks/useWorkerFetch";
 import { AddButton } from "./addButton";
-import { UpdateButton } from "./updateButton";
 import { DeleteButton } from "./deleteButton";
 import { SaveButton } from "./saveButton";
 import { useState } from "react";
@@ -27,7 +26,6 @@ export const WorkerList = () => {
                                     onChange={
                                         (e) => {
                                             workersManager.setWorkers(
-                                                // ここで触られているworkerのstateだけを更新する
                                                 workersManager.workers.map((w) => {
                                                     if (w.id === worker.id) {
                                                         return { ...w, name: e.target.value, changed: true };
