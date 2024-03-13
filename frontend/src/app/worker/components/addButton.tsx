@@ -2,7 +2,7 @@ import { SuzuyaWorker } from "@/types/worker";
 
 type AddButtonProps = {
     workers: SuzuyaWorker[];
-    setWorkers: (workers: SuzuyaWorker[]) => void;
+    setWorkers: React.Dispatch<React.SetStateAction<SuzuyaWorker[]>>;
     isAddButtonVisible: boolean;
     setIsAddButtonVisible: (isAddButtonVisible: boolean) => void;
 };

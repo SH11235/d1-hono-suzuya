@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
+import { Providers } from "@/app/providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,9 +17,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ja" className="bg-gray-50">
-            <body className="h-full">
-                {children}
-            </body>
+            <Providers>
+                <body className="h-full">
+                    {children}
+                </body>
+            </Providers>
         </html>
     );
 }
